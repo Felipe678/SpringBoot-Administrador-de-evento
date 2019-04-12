@@ -26,7 +26,6 @@ public class Convidado {
     private String NomeConvidado;
     
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Evento evento;
 
     public String getRg() {
