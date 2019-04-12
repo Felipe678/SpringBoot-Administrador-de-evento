@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 /**
  *
@@ -24,6 +26,7 @@ public class Convidado {
     private String NomeConvidado;
     
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Evento evento;
 
     public String getRg() {

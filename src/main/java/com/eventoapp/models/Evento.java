@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 /**
  *
@@ -35,7 +37,8 @@ public class Evento implements Serializable{
     @NotBlank
     private String horario;
     
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Convidado> convidados;
     
     public String getNome() {
