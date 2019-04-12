@@ -37,8 +37,7 @@ public class Evento implements Serializable{
     @NotBlank
     private String horario;
     
-    @OneToMany
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Convidado> convidados;
     
     public String getNome() {
